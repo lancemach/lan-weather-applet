@@ -1,0 +1,62 @@
+<!-- components/loading/index.wxml -->
+<view id="loading-box" class="loading-box{{ loadingStart ? ' is-loading' : '' }} {{ loadingType === 'loading' ? '' : loadingType }}" style="background: {{ defaultConfig.skin.background || '#f2f2f2' }}">
+    <block wx:if="{{ loadingType == 'network-out' }}">
+        <view class="loading-main loading-scene-box loading-scene-mountains ^flex-box ^flex-box-jcc ^flex-box-aic">
+            <view class="loading loading-network-out ^flex-box ^flex-box-jcc ^flex-box-dc">
+                <view class="wind-box">
+                    <view class="wind search-network"></view>
+                    <view class="wind search-network"></view>
+                    <view class="wind search-network"></view>
+                    <view class="wind"></view>
+                    <view class="wind"></view>
+                    <view class="wind"></view>
+                </view>
+                <view class="loading-text">咦，大风大霾网络好像迷路咯！</view>
+                <view class="linked-network ^border-hairline" bindtap="getLinkedNetwork">
+                    <text class="text">重新连接网络</text>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{ loadingType == 'location-out' }}">
+        <view class="loading-main loading-scene-box loading-scene-location ^flex-box ^flex-box-jcc ^flex-box-aic">
+            <view class="satellite-box">
+                <view class="satellite-icon"></view>
+                <view class="satellite-signal">
+                    <view class="icon search-network"></view>
+                    <view class="icon search-network"></view>
+                    <view class="icon search-network"></view>
+                </view>
+            </view>
+        <view class="loading loading-location-out ^flex-box ^flex-box-jcc ^flex-box-dc">
+            <view class="loading-text">咦，大风大霾卫星迷路咯！</view>
+                <view class="linked-network ^border-hairline" bindtap="getOpenSettingLocation">
+                    <text class="text">授权地理位置</text>
+                </view>
+        </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="loading-main ^flex-box ^flex-box-jcc ^flex-box-aic">
+            <view class="loading ^flex-box ^flex-box-dc ^flex-box-jcc">
+                <view class="loading-cloud-box">
+                    <view class="load-cloud"></view>
+                    <view class="load-sunhalo sunhalo-rotate"></view>
+                    <view class="raining ^flex-box ^flex-box-jcs">
+                        <view class="drop"></view>
+                        <view class="drop"></view>
+                        <view class="drop"></view>
+                        <view class="drop"></view>
+                        <view class="drop"></view>
+                        <view class="drop"></view>
+                    </view>
+                </view>
+                <view class="loading-text">正在加载天气数据 ···</view>
+            </view>
+        </view>
+    </block>
+    <view class="loading-copyright">
+        <text class="text">{{ defaultConfig.productName }}</text>
+        <text class="text nums">{{ defaultConfig.version }}</text>
+    </view>
+</view>

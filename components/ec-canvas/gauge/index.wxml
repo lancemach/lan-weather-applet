@@ -1,0 +1,4 @@
+<!--components/ec-canvas/gauge/index.wxml-->
+<view class="echarts-box">
+  <ec-canvas id="echarts-gauge" canvas-id="echarts-gauge" ec="{{ ec }}"></ec-canvas>
+</view>

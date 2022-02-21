@@ -1,0 +1,4 @@
+/* components/ec-canvas/gauge/index.wxss */
+.echarts-box {
+    height: 210rpx;
+}

@@ -1,0 +1,68 @@
+<!--pages/daily.wxml-->
+<view class="container media-images-bg" style="background: {{ defaultConfig.skin.background }}; color: {{ defaultConfig.skin.color }}">
+  <lan-nav-bar
+    left-text="{{ userLocation.district }} 15天趋势预报"
+    status-bar="rgba(0, 0, 0, .15)"
+    left-arrow
+    ghost-bar
+    bind:click-left="onClickLeft" />
+  <view class="weather-box">
+    <scroll-view scroll-x="true" style="width: 100%">
+      <view class="daily-15-box" style="width: {{ dailyWidth * 15 + 2 }}rpx;">
+          <view class="daily-chart-temp" wx:if="{{ weatherData.echarts.daily.xAxis.length }}" style="top:{{ canvasTop || 270 }}rpx;width:{{ dailyWidth * 15 }}rpx">
+            <view class="daily-temp">
+              <lan-echarts class="chart-box" line="{{ weatherData.echarts.daily }}" style="height: 400rpx;" />
+            </view>
+          </view>
+          <view class="daily-15-data flex-box flex-box-jcs">
+            <view class="daily-item{{ index === 0 ? ' today' : '' }}" style="width: {{ dailyWidth }}rpx;border-radius: {{ dailyWidth - 30 }}rpx" wx:for="{{ weatherData.daily }}" wx:key="index">
+                <view class="daily-morn">
+                    <view class="daily-box daily-date">
+                        <view class="week">{{ weatherData.daily[index].skycon.week  }}</view>
+                        <view class="date">{{ weatherData.daily[index].skycon.days }}</view>
+                    </view>
+                    <view class="daily-box daily-skycon">
+                      <iconfont
+                        class="icon skycon-icon"
+                        name="lm-{{ weatherData.daily[index].skycon_08h_20h.icon }}"
+                        size="36"
+                        opacity=".92"
+                      />
+                      <text class="text">{{ weatherData.daily[index].skycon_08h_20h.text }}</text>
+                    </view>
+                </view>
+                <view class="daily-night">
+                    <view class="daily-box daily-skycon">
+                      <iconfont
+                        class="icon skycon-icon"
+                        name="lm-{{ weatherData.daily[index].skycon_20h_32h.icon }}"
+                        size="36"
+                        opacity=".92"
+                      />
+                      <text class="text">{{ weatherData.daily[index].skycon_20h_32h.text }}</text>
+                    </view>
+                    <view class="daily-box daily-wind flex-box flex-box-dc">
+                      <text class="direction">{{ weatherData.daily[index].wind.direction }}</text>
+                      <text class="speed">{{ weatherData.daily[index].wind.speed }}m/s</text>
+                    </view>
+                    <view class="daily-box daily-aqi flex-box flex-box-jcc">
+                      <text class="text">{{ weatherData.daily[index].aqi.text }}</text>
+                    </view>
+                </view>
+            </view>
+          </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="copyright-data flex-box flex-box-jcc">
+    <iconfont
+      class="icon skycon-icon"
+      color="rgba(255, 255, 255, .5)"
+      name="lm-lifang"
+      size="14"
+      opacity=".4"
+    />
+    <text class="text">{{ defaultConfig.copyright.data }}</text>
+  </view>
+</view>
+

@@ -1,0 +1,258 @@
+/**index.wxss**/
+.weather-herder {
+  margin: 45rpx 15rpx 20rpx;
+  height: 50rpx;
+  font-size: 14px;
+  line-height: 60rpx;
+  text-align: center;
+  color: rgba(255, 255, 255, .8);
+}
+.weather-aqi .aqi-box {
+  padding: 0 16rpx 0 14rpx;
+  border-radius: 2px;
+  color: #fff;
+  background: rgba(0, 0, 0, .15);
+}
+.weather-aqi .aqi-box .icon-alarm {
+  position: relative;
+  top: -1rpx;
+  margin-right: 4px;
+}
+.weather-aqi .aqi-box .icon-secure {
+  position: relative;
+  top: 2rpx;
+  margin-right: 6px;
+  font-size: 22px
+}
+.weather-aqi .aqi-box .icon-warning {
+  position: relative;
+  margin-right: 5px;
+  top: 2rpx;
+}
+.weather-update-time {
+  color: rgba(255, 255, 255, .8)
+}
+.weather-update-time .text, .weather-aqi .aqi-box .text {
+  font-size: 12px;
+}
+.weather-aqi .aqi-box .text {
+  margin-right: 8px
+}
+.weather-aqi .aqi-box .nums, .weather-update-time .time {
+  font-size: 13px;
+  margin-right: 4px
+}
+.weather-temperature {
+  padding:58rpx 58rpx 0;
+  margin-bottom: 78px;
+  text-shadow: 3px 10px 20px rgba(0, 0, 0, .1);
+  overflow: hidden;
+}
+.weather-temperature .temp {
+  font-size: 108px;
+  font-weight: 500;
+  height: 100px;
+  line-height: 90px;
+  font-family: Montserrat Hairline;
+}
+.weather-temperature .unit {
+  position: relative;
+  top: 2rpx;
+  font-size: 36px;
+  font-weight: 100;
+  margin-left: 5px;
+  color: rgba(255, 255, 255, .95);
+}
+.forecast-keypoint {
+  padding: 10rpx 15px 10rpx 15px;
+  margin: 6px 0 15px 0;
+  height: 40px;
+  border-radius: 2px 2px 0 0;
+  background: rgba(255, 255, 255, .02);
+  overflow: hidden;
+}
+.weather-forecast::after {
+  border-color: rgba(255, 255, 255, .01);
+}
+.forecast-keypoint .icon {
+  position: relative;
+  top: 2rpx;
+  margin-right: 8px
+}
+.forecast-keypoint .text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .8);
+}
+.skycon-box {
+  margin-left: -12rpx;
+}
+.skycon-box .text {
+  font-size: 15px;
+}
+.skycon-box .icon {
+  position: relative;
+  top: 3rpx;
+}
+/* .weather-temperature .temp, .weather-temperature .unit {
+  position: relative;
+  left: 3px
+} */
+/* .main-params {
+  margin-top: 78px;
+} */
+.main-params {
+  padding: 0 10%;
+}
+.main-params .params {
+  position: relative;
+  text-align: center;
+  /* flex: none;
+  margin: 0 12px; */
+}
+.main-params .params:last-child::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  bottom: 4rpx;
+  border-left: 1px solid rgba(255, 255, 255, .12);
+}
+.main-params .icon {
+  position: relative;
+  top: 3rpx;
+  margin-right: 5px;
+  font-size: 20px;
+}
+.main-params .humidity {
+  top: 5rpx;
+}
+.main-params .text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .75);
+}
+.main-params .nums {
+  font-size: 14px;
+}
+
+.daily-mini {
+  padding: 22rpx 45rpx;
+}
+.daily-mini .skycon-text .text {
+  font-size: 15px;
+}
+.daily-mini .skycon-text .aqi {
+  position: relative;
+  top: 2rpx;
+  display: block;
+  margin-left: 16rpx;
+  padding: 0 22rpx;
+  height: 40rpx;
+  line-height: 38rpx;
+  border-radius: 40rpx;
+  font-size: 10px;
+  background: rgba(255, 255, 255, .1);
+  overflow: hidden;
+}
+.daily-mini .skycon-icon {
+  margin-right: 10px
+}
+.daily-mini .skycon-temp {
+  margin-right: 10px;
+}
+.skycon-icon {
+  flex-wrap: wrap;
+}
+.skycon-icon .icon {
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.check-more {
+  padding: 30rpx 0;
+}
+.check-more .text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .4);
+}
+.check-more .symbol {
+  margin-left: 20rpx;
+}
+.life-index {
+  padding: 15rpx 15rpx 35rpx;
+  text-align: center;
+}
+.life-index .life-box {
+  padding: 20rpx 0;
+}
+.life-index .life-box .icon {
+  margin: 28rpx 0 10rpx
+}
+.life-index .life-box .text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, .4)
+}
+.sunshine {
+  padding: 40rpx 25rpx;
+}
+.weather-other {
+  width: 100%;
+  padding: 80rpx 0 20rpx;
+}
+.weather-other text {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, .4);
+}
+.weather-other .nums {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, .95);
+}
+.hourly-box {
+  position: relative;
+  padding: 35rpx 0 20rpx;
+  margin: 0 20rpx;
+}
+.hourly-param {
+  position: absolute;
+  left: 0;
+  top: 186rpx;
+}
+.hourly-item {
+  text-align: center;
+}
+.hourly-item .wind-text {
+  font-size: 10px;
+  margin: 22rpx 0 14rpx;
+}
+
+.hourly-item .aqi-text {
+  height: 13px;
+  line-height: 13px;
+  border-radius: 13px;
+  padding: 0 15rpx;
+  font-size: 8px;
+  background: rgba(255, 255, 255, .1);
+}
+  
+
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 28rpx;
+  border-radius: 50%;
+}

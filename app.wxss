@@ -1,0 +1,149 @@
+/**app.wxss**/
+
+/* Montserrat Hairline 字体 */
+@font-face {
+  font-family: 'Montserrat Hairline';
+  src: url(assets/fonts/montserrat-hairline/montserrat-hairline..svg#hairline) format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+page {
+  --nav-bar-text-color: #000;
+  position: relative;
+}
+page .ghost-bar{
+  --nav-bar-text-color: #fff
+}
+page .ghost-bar .van-nav-bar__title {
+  --nav-bar-title-text-color: #fff
+}
+/* page .van-nav-bar__title {
+  --nav-bar-title-font-size: 18
+} */
+page, .container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.box-sizing-border {
+  box-sizing: border-box;
+}
+
+/* flex box */
+.flex-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-box-block {
+  flex: 1;
+}
+.flex-box-jcs {
+  justify-content: flex-start;
+}
+.flex-box-jcb {
+  justify-content: space-between;
+}
+.flex-box-jcc {
+  justify-content: center;
+}
+.flex-box-jce {
+  justify-content: flex-end;
+}
+.flex-box-ais {
+  align-items: flex-start
+}
+.flex-box-aic {
+  align-items: center
+}
+.flex-box-dc {
+  flex-direction: column
+}
+.border-hairline, .border-hairline-top, .border-hairline-left, .border-hairline-right,  .border-hairline-bottom {
+  position: relative;
+}
+.border-hairline::before, .border-hairline-top::before, .border-hairline-left::before, .border-hairline-right::after,  .border-hairline-bottom::after {
+  position: absolute;
+  box-sizing: border-box;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  content: " ";
+  pointer-events: none;
+  border-color: #808080;
+  border-style: solid;
+  border-width: 0;
+  -webkit-transform: scale(.5);
+  transform: scale(.5)
+}
+.border-hairline::before {
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  top: -50%;
+  border-width: 1px;
+}
+.border-hairline-top::before, .border-hairline-bottom::after {
+  left: -50%;
+  right: -50%;
+}
+.border-hairline-left::before, .border-hairline-right::after {
+  top: -50%;
+  bottom: -50%;
+}
+.border-hairline-top::before {
+  top: 0;
+  border-top-width: 1rpx;
+}
+.border-hairline-right::after {
+  right: 0;
+  border-right-width: 1rpx;
+}
+.border-hairline-bottom::after {
+  bottom: 0;
+  border-bottom-width: 1rpx;
+}
+.border-hairline-left::before {
+  left: 0;
+  border-left-width: 1rpx;
+}
+
+.safe-box {
+  padding: 0 28rpx
+}
+.block-box {
+  width: 100%;
+}
+.block-box-col2 {
+  width: 49.999999%;
+}
+.block-box-col3 {
+  width: 33.333333%;
+}
+.weather-block {
+  margin: 28rpx 8px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, .08);
+  /* box-shadow: 1px 1px 6px rgba(0, 0, 0, .002),  -1px -1px 6px rgba(0, 0, 0, .002); */
+}
+.copyright-right {
+  padding: 60rpx 20rpx 28rpx;
+  text-align: center;
+  color: rgba(225, 225, 225, .2);
+  font-size: 10px;
+}
+.copyright-lancema {
+  margin-bottom: 14rpx;
+}
+.copyright-lancema .text {
+  margin: 0 8rpx;
+}
+.copyright-lancema .words {
+  font-size: 11px;
+}
+.copyright-data {
+  font-size: 9px;
+}
+.copyright-data .icon {
+  margin-right: 8rpx
+}

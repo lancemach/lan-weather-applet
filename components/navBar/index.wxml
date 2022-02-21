@@ -1,0 +1,7 @@
+<!--component/navBar.wxml-->
+<view class='nav-bar mobile-{{ userSystemInfo.systemAbbr }}' style="padding:{{userSystemInfo.menuButtonBounding.top + 1}}px 20px 12px">
+  <view class="navbar-box flex-box flex-box-jcs flex-box-aic" style="height:{{ userSystemInfo.menuButtonBounding.height }}px">
+    <view class='navbar-icon-left' bindtap=""></view>
+    <view class='navbar-title'>蓝思天气</view>
+  </view>
+</view> 

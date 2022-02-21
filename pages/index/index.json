@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "lan-nav-bar": "/components/nav-bar/index",
+    "lan-icon": "/components/icon/index",
+    "lan-gauge-echarts": "/components/ec-canvas/gauge/index",
+    "lan-hourly-echarts": "/components/ec-canvas/hourly-line/index"
+  }
+}

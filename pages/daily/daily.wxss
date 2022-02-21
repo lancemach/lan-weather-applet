@@ -1,0 +1,66 @@
+/* pages/daily.wxss */
+.container {
+   position: relative;
+   padding-bottom: 50rpx;
+}
+.daily-15-data {
+   padding: 20rpx 0;
+}
+.daily-item {
+   padding: 40rpx 0;
+}
+.daily-item.today {
+   background: rgba(225, 225, 225, .06)
+}
+.daily-box {
+   text-align: center;
+}
+.daily-date .week {
+   font-size: 14px;
+}
+
+.daily-date .date {
+   font-size: 10px;
+   color: rgba(255, 255, 255, .6);
+}
+.daily-skycon {
+   margin: 30rpx 0;
+}
+.daily-aqi {
+   margin-top: 30rpx;
+}
+.daily-skycon .text {
+   font-size: 13px;
+   line-height: 100%;
+}
+.daily-wind text {
+   font-size: 12px;
+   color: rgba(255, 255, 255, .6);
+}
+.daily-aqi .text {
+   padding: 0 12px;
+   height: 18px;
+   line-height: 18px;
+   border-radius: 18px;
+   font-size: 11px;
+   background: rgba(255, 255, 255, .1)
+}
+.daily-morn {
+   margin-bottom: 400rpx;
+}
+.daily-temp {
+   height: 400rpx;
+}
+.daily-15-box {
+   position: relative;
+}
+.daily-chart-temp {
+   position: absolute;
+}
+.copyright-data {
+   position: absolute;
+   left: 0;
+   bottom: 25rpx;
+   width: 100%;
+   color: rgba(255, 255, 255, .2);
+}

@@ -1,0 +1,4 @@
+<!--components/ec-canvas/hourly-line/index.wxml-->
+<view class="echarts-box">
+  <ec-canvas id="echarts-hourly-line" canvas-id="echarts-hourly-line" ec="{{ ec }}"></ec-canvas>
+</view>

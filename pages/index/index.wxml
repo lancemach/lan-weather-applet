@@ -1,0 +1,147 @@
+<!-- index.wxml -->
+<!-- <view class="container media-images-bg" style="background: {{ defaultConfig.skin.background }} url('https://qiniu.lancema.com/images/bg/bg-00.png') no-repeat top right;background-size: auto 100%; color: {{ defaultConfig.skin.color }}"> -->
+<view class="container media-images-bg" style="background: {{ defaultConfig.skin.background }}; color: {{ defaultConfig.skin.color }}">
+  <lan-nav-bar left-text="{{ userLocation.district + ' ' + userLocation.landmark }}" status-bar="rgba(0, 0, 0, .15)" left-location border ghost-bar />
+  <view class="weather-box">
+    <scroll-view scroll-y="ture" style="height: {{ safeMainHeight }}px" class="box-y-scroll">
+      <view class="weather-herder safe-box flex-box flex-box-jcb flex-box-aic">
+        <view class="weather-aqi">
+          <view class="aqi-box flex-box flex-box-jcs flex-box-aic">
+            <iconfont class="icon-{{ weatherData.realtime.aqi.type }}" name="lm-{{weatherData.realtime.aqi.type}}" color="{{ weatherData.realtime.aqi.color }}" />
+            <text class="nums text">{{ weatherData.realtime.aqi.chn[0] || 0 }}</text>
+            <text class="text">{{ weatherData.realtime.aqi.chn[1] || '优' }}</text>
+          </view>
+        </view>
+        <view class="weather-update-time">
+          <view class="update-time flex-box flex-box-jcs flex-box-aic">
+            <text class="time text">{{ updateTime !== '正在' ? updateTime : '' }}</text>
+            <text class="text">{{ updateTime !== '正在' ? '' : updateTime }}更新</text>
+          </view>
+        </view>
+      </view>
+      <view class="weather-temperature safe-box">
+        <view class="temp-box flex-box flex-box-jcs">
+          <text class="temp">{{ weatherData.realtime.temperature ? weatherData.realtime.temperature : '0' }}</text>
+          <text class="unit">°</text>
+        </view>
+        <view class="skycon-box">
+          <text class="text">{{ weatherData.realtime.skycon }}</text>
+        </view>
+      </view>
+      <view class="weather-params main-params flex-box flex-box-aic flex-box-jcc">
+        <view class="params block-box-col2 flex-box flex-box-jcc">
+          <iconfont class="icon direction" name="lm-direction-o" color="rgba(255, 255, 255, .86)" />
+          <text class="wind text">{{ weatherData.realtime.wind.text }}</text>
+        </view>
+        <view class="params block-box-col2 flex-box flex-box-jcc">
+          <iconfont class="icon humidity" name="lm-humidity-o" color="rgba(255, 255, 255, .86)" />
+          <text class="humidity text nums">{{ weatherData.realtime.humidity }}%</text>
+        </view>
+      </view>
+      <view class="weather-block daily-mini-box">
+        <view class="weather-forecast border-hairline-bottom">
+          <view class="forecast-keypoint flex-box flex-box-aic flex-box-jcc box-sizing-border">
+            <iconfont class="icon skycon-icon" name="lm-notice-o" size="20" color="rgba(255, 255, 255, .8)" />
+            <text class="text">{{ weatherData.forecast_keypoint }}</text>
+          </view>
+        </view>
+        <view class="block-box">
+          <view wx:for="{{ weatherData.daily }}" wx:if="{{ index < 2 }}" wx:key="index" class="daily-mini box-sizing-border">
+            <view class="today item flex-box flex-box-jcb flex-box-aic">
+              <view class="skycon flex-box flex-box-jcs flex-box-aic">
+                <iconfont class="icon skycon-icon" name="lm-{{ weatherData.daily[index].skycon.icon }}" size="38" opacity=".92" />
+                <view class="skycon-text flex-box flex-box-jcs flex-box-aic">
+                  <text class="text">{{ weatherData.daily[index].skycon.week }} · {{ weatherData.daily[index].skycon.text }}</text>
+                  <text class="aqi">{{ weatherData.daily[index].aqi.text }}</text>
+                </view>
+              </view>
+              <text class="skycon-temp">{{ weatherData.daily[index].temperature.min }} ~ {{ weatherData.daily[index].temperature.max }} ℃</text>
+            </view>
+          </view>
+          <view class="check-more flex-box flex-box-jcc flex-box-aic" bindtap="handleCheckDailyPage">
+            <text class="text">查看近15日天气</text>
+            <text class="text symbol">></text>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="userinfo">
+          <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+          <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          </block>
+      </view> -->
+      <view class="weather-block hourly">
+        <scroll-view scroll-x="true">
+          <view class="hourly-box" wx:if="{{ weatherData.hourly.length }}" style="width:{{ 110 * weatherData.hourly.length || 24 }}rpx">
+            <lan-hourly-echarts class="chart-hourly-box" hourly="{{ weatherData.hourly }}" style="height: 400rpx;width:100%" />
+            <view class="hourly-param flex-box flex-box-jcc">
+              <view class="hourly-item flex-box flex-box-dc flex-box-jcc" wx:for="{{ weatherData.hourly }}" wx:for-item="hourly" wx:key="index" style="width: 110rpx">
+                <iconfont class="icon skycon-icon" name="lm-{{ hourly.skycon.icon }}" size="30" opacity=".8" />
+                <text class="wind-text">{{ hourly.wind.speed }}m/s</text>
+                <view class="aqi flex-box flex-box-jcc">
+                  <text class="aqi-text">{{ hourly.aqi.text }}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="weather-block sunshine flex-box flex-box-jcc flex-box-dc" wx:if="{{ weatherData.realtime.astro }}">
+        <lan-gauge-echarts class="chart-gauge-box" gauge="{{ weatherData.realtime.astro }}" style="height: 210rpx;width:100%" />
+        <view class="weather-other flex-box flex-box-jcs">
+          <view class="block-box-col3 flex-box flex-box-jcc flex-box-dc">
+            <text class="nums">{{ weatherData.realtime.wind.speed }} m/s</text>
+            <text class="text">{{ weatherData.realtime.wind.direction }}风</text>
+          </view>
+          <view class="block-box-col3 flex-box flex-box-jcc flex-box-dc">
+            <text class="nums">{{ weatherData.realtime.visibility }} km</text>
+            <text class="text">能见度</text>
+          </view>
+          <view class="block-box-col3 flex-box flex-box-jcc flex-box-dc">
+            <text class="nums">{{ weatherData.realtime.pressure }} hPa</text>
+            <text class="text">气压</text>
+          </view>
+        </view>
+      </view>
+      <view class="weather-block life-index flex-box flex-box-jcs">
+        <view class="life-box block-box-col3 flex-box flex-box-jcc flex-box-dc">
+          <iconfont class="icon life" name="lm-medicine-o" size="40" color="rgba(255, 255, 255, .8)" />
+          <text class="text">{{ weatherData.realtime.lifeIndex.coldRisk }}感冒</text>
+        </view>
+        <view class="life-box block-box-col3 flex-box flex-box-jcc flex-box-dc">
+          <iconfont class="icon life" name="lm-radiate-o" size="40" color="rgba(255, 255, 255, .8)" />
+          <text class="text">紫外线{{ weatherData.realtime.lifeIndex.ultraviolet }}</text>
+        </view>
+        <view class="life-box block-box-col3 flex-box flex-box-jcc flex-box-dc">
+          <iconfont class="icon life" name="lm-umbrella{{ weatherData.realtime.lifeIndex.rainfall === true ? '-use' : '' }}-o" size="40" color="rgba(255, 255, 255, .8)" />
+          <text class="text">{{ weatherData.realtime.lifeIndex.rainfall === true ? '需要带伞' : '不用带伞' }}</text>
+        </view>
+        <view class="life-box block-box-col3 flex-box flex-box-jcc flex-box-dc">
+          <iconfont class="icon life" name="lm-sofa-o" size="40" color="rgba(255, 255, 255, .8)" />
+          <text class="text">{{ weatherData.realtime.lifeIndex.comfort }}</text>
+        </view>
+        <view class="life-box block-box-col3 flex-box flex-box-jcc flex-box-dc">
+          <iconfont class="icon life" name="lm-carwash-o" size="40" color="rgba(255, 255, 255, .8)" />
+          <text class="text">{{ weatherData.realtime.lifeIndex.carWashing }}洗车</text>
+        </view>
+        <view class="life-box block-box-col3 flex-box flex-box-jcc flex-box-dc">
+          <iconfont class="icon life" name="lm-campaign-o" size="40" color="rgba(255, 255, 255, .76)" />
+          <text class="text">{{ weatherData.realtime.lifeIndex.sport ? '' : '不' }}宜户外运动</text>
+        </view>
+      </view>
+      <view class="copyright-right">
+        <view class="copyright-lancema">
+          <text class="words text">{{ defaultConfig.copyright.date }}</text>
+          <text class="text">{{ defaultConfig.productName }}</text>
+          <text class="text">{{ defaultConfig.copyright.author }}</text>
+        </view>
+        <view class="copyright-data flex-box flex-box-jcc">
+          <iconfont class="icon skycon-icon" color="rgba(255, 255, 255, .5)" name="lm-lifang" size="14" opacity=".4" />
+          <text class="text">{{ defaultConfig.copyright.data }}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<lan-loading v-if="loadingStart" loading-type="{{ loadingType }}" loading-start="{{ loadingStart }}" bind:getLoadingDataCom="bindLoadingDataCom" />

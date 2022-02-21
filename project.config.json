@@ -1,0 +1,74 @@
+{
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
+    },
+    "setting": {
+        "urlCheck": true,
+        "es6": true,
+        "enhance": false,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "enableEngineNative": false,
+        "useIsolateContext": true,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "disableUseStrict": false,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false,
+        "minifyWXML": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.9.4",
+    "appid": "wx9a3f13e15421c08a",
+    "projectname": "weather-wechat-applet",
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "scripts": {
+        "beforeCompile": "",
+        "beforePreview": "",
+        "beforeUpload": ""
+    },
+    "condition": {
+        "search": {
+            "list": []
+        },
+        "conversation": {
+            "list": []
+        },
+        "game": {
+            "currentL": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "list": []
+        }
+    }
+}

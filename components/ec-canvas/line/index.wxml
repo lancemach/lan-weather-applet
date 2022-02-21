@@ -1,0 +1,4 @@
+<!--components/ec-canvas/line/index.wxml-->
+<view class="echarts-box">
+  <ec-canvas id="echarts-line" canvas-id="echarts-line" ec="{{ ec }}"></ec-canvas>
+</view>
